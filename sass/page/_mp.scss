@@ -230,7 +230,9 @@ $other: #037ef3;
         }
     }
     .img-container{
+        @include aspect-ratio(2,1);
         flex: 0 0 60%;
+        max-width: 640px;
         height: 320px;
     }
     .info{
@@ -286,6 +288,12 @@ $other: #037ef3;
                     color: #fff;
                 }
             }
+        }
+    }
+    @include screen('tablet') {
+        .img-container{
+            max-width: 100%;
+            height: auto; 
         }
     }
     @include screen('mobile') {
