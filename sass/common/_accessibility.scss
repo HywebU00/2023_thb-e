@@ -4,7 +4,7 @@
     outline: none;
 }
 
- :focus-visible {
+:focus-visible {
     outline: 2px dashed $aFocus;
 }
 
@@ -29,8 +29,8 @@ a.goCenter {
     padding: 0 .5em;
     height: 2em;
     line-height: 2em;
-    background: $secondaryColor;
-    color: #fff;
+    background: #f48924;
+    color: #333 !important;
     text-decoration: none;
     z-index: 999999999999;
     opacity: 0;

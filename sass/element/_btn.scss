@@ -110,6 +110,45 @@ $btn-radius:.2em;
     // @extend %btn;
     @include btn_setting(lighten($primaryColor, 5), #FFF);
 }
+.btn-more {
+    border-radius: 40px;
+    padding: 1em 6em 1em 3em;
+    font-size: 1.125em;
+    // background: url(../images/icon-arrow-down.svg) right 26px top 50% no-repeat lighten($primaryColor, 5);
+    background: lighten($primaryColor, 5);
+    background-size: 24px 24px;
+    color: #fff;
+    overflow: hidden;
+
+    position: relative;
+    &:before,
+    &:after{
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        right: 24px;
+        transform: translateY(-50%);
+        background: url(../images/icon-arrow-down.svg) 50% 50% no-repeat;
+        transition: .3s;
+    }
+    &:before{
+        top: 50%;
+    }
+    &:after{
+        top: -50%;
+    }
+    &:hover, &:focus, &:focus-visible{
+        color: #fff;
+        background: darken($primaryColor, 2);
+        &:before{
+            top: 150%;
+        }
+        &:after{
+            top: 50%;
+        }
+    }
+}
 // 主要按鈕
 .btn-primary{
     background: $primaryColor!important;

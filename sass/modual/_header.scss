@@ -1,31 +1,42 @@
 //header
 .header {
-    position: relative;
+    // position: relative;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    background: url(../images/bg-header.png) left 50% bottom -20px no-repeat;
     z-index: 99;
     transition: 0.3s ease-out;
     @extend %clearfix;
-    @include screen('mobile') {
-        position: fixed;
-        width: 100%;
-    }
-    &:before {
+
+    &:after{
+        content: "";
         position: absolute;
-        content: '';
         width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: #fff;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        pointer-events: none;
-        z-index: -1;
-        @include screen('mobile') {
-            height: 60px;
-        }
+        height: 20px;
+        background: url(../images/bg-header.png) 50% bottom no-repeat;
     }
+
+    // @include screen('mobile') {
+    //     position: fixed;
+    //     width: 100%;
+    // }
+    // &:before {
+    //     position: absolute;
+    //     content: '';
+    //     width: 100%;
+    //     height: 100%;
+    //     top: 0;
+    //     left: 0;
+    //     background: #fff;
+    //     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    //     pointer-events: none;
+    //     z-index: -1;
+    //     @include screen('mobile') {
+    //         height: 60px;
+    //     }
+    // }
     // mobile btn for extend
     %mobileCtrlBtn {
         width: 60px !important;
@@ -50,13 +61,14 @@
         max-width: $container-max;
         overflow: visible;
         position: relative; // menu
+        @include gutter(2em);
         .sidebarCtrl {
             display: none;
             left: 0px;
             @extend %mobileCtrlBtn;
             span {
                 position: absolute;
-                background: $primaryColor;
+                background: #fff;
                 width: 50%;
                 height: 3px;
                 top: 20px;
@@ -81,9 +93,9 @@
             &:before {
                 width: 40px;
                 height: 40px;
-                background: url(../images/basic/icon_search.png) no-repeat center center;
+                background: url(../images/icon/icon_search2.svg) no-repeat center center;
                 background-size: 28px;
-                opacity: 0.6;
+                // opacity: 0.6;
                 content: '';
                 position: absolute;
                 top: 10px;
@@ -95,7 +107,7 @@
     h1 {
         float: left;
         width: 300px;
-        height: 75px;
+        // height: 75px;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -146,7 +158,8 @@
                     display: block;
                     padding: 0.5em;
                     text-decoration: none;
-                    @include aSetting_nocolor;
+                    // @include aSetting_nocolor;
+                    color: #fff;
                 }
             }
         }
@@ -161,6 +174,9 @@
             align-self: center;
         }
     }
+    .accesskey{
+        color: #fff;
+    }
 }
 
 //search
@@ -170,7 +186,7 @@
     flex-wrap: wrap;
     vertical-align: top;
     font-size: 0.938em;
-    margin: 1em 0.5em;
+    margin: .5em;
     box-sizing: border-box;
     @include screen('mobile') {
         display: none;
@@ -181,14 +197,30 @@
     .form_grp {
         flex: 0 0 auto;
         margin: 0;
+        position: relative;
         input {
             margin: 0 0 0 0.5em;
-            padding: 0.25em 0.5em;
+            padding: .65em 4em .65em 1em;
             box-shadow: none;
             width: auto;
+            border-radius: 44px;
             &[type='submit'] {
+                position: absolute;
+                right: 2px;
+                top: 1px;
                 min-width: auto;
-                padding: 0.2em 0.8em;
+                width: 40px;
+                height: 40px;
+                padding: .65em;
+                background: url(../images/icon/icon_search.svg) 50% 50% no-repeat #fff;
+                background-size: 22px 22px;
+                border-color: transparent;
+                border-radius: 50%;
+                text-indent: -2000px;
+
+                &:hover, &:focus-visible{
+                    filter: invert(1);
+                }
             }
             &:focus {
                 box-shadow: 0 0px 0px 2px $aFocus;
@@ -250,11 +282,11 @@
     width: 100% !important;
     max-width: 100% !important;
     min-width: auto;
-    padding: 0.8em 0.3em;
+    padding: 2em;
     display: block;
     height: auto;
     position: fixed;
-    top: 60px;
+    top: 70px;
     left: 0;
     z-index: 98;
     background: #333;
@@ -271,14 +303,39 @@
             display: none;
             flex: 0 0 0%;
         }
+
+        position: relative;
         input {
-            margin: 0.5em;
-            padding: 0.5em;
-            flex: 1 1 50%;
-            max-width: 70%;
+            // margin: 0.5em;
+            // padding: 0.5em;
+            // flex: 1 1 50%;
+            // max-width: 70%;
+
+            padding: .65em 4em .65em 1em;
+            box-shadow: none;
+            width: 100%;
+            border-radius: 44px;
+            // &[type='submit'] {
+            //     flex: 0 1 15%;
+            //     margin: 0.5em;
+            // }
             &[type='submit'] {
-                flex: 0 1 15%;
-                margin: 0.5em;
+                position: absolute;
+                right: 8px;
+                top: 7px;
+                min-width: auto;
+                width: 40px;
+                height: 40px;
+                padding: .65em;
+                background: url(../images/icon/icon_search.svg) 50% 50% no-repeat #fff;
+                background-size: 22px 22px;
+                border-color: transparent;
+                border-radius: 50%;
+                text-indent: -2000px;
+
+                &:hover, &:focus-visible{
+                    filter: invert(1);
+                }
             }
         }
         .btn,

@@ -1,102 +1,220 @@
-footer {
-    box-sizing: border-box;
+footer{
     @include clearfix;
-    text-align: left;
+    box-sizing: border-box;
+    padding: 2em 0;
     font-size: 0.813em;
-    padding: 1em 0;
+    color: #fff;
+
+    // mix-blend-mode 前置作業
+    // 下面的底圖
+    background: url(../images/bg-mp.jpg) 50% 80% no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    // 覆蓋的顏色
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #006969;
+        mix-blend-mode: multiply;
+    }
+
     .container {
         @include gutter;
-        >div {
-            padding-bottom: 1em;
-        }
+        position: relative;
+        z-index: 2;
         display: flex;
-        @include screen('tablet') {
-            flex-wrap:wrap;
+        flex-wrap: wrap;
+        .footer_logo,
+        .footer_link,
+        .footer_info,
+        .footer_icon{
+            flex: 1 1 50%;
         }
-    }
-    a {
-        text-decoration: none;
-        color: $primaryColor;
-        &:hover,
-        &:focus {
-            color: darken($primaryColor, 10);
+        .footer_link,
+        .footer_icon{
+            text-align: right;
         }
-    }
-    .footer_logo {
-        flex:0 1 240px;
-    }
-    .footer_info {
-        flex:1 1 auto;
-    }
-    .footer_icon {
-        flex:0 1 200px;
-        @include screen('tablet') {
-           flex:1 1 100%; 
-           text-align: right;
-       }
-   }
-    // 版權連結
-    .footer_link {
-        @include li-reset();
-        @include clearfix();
-        display: flex;
-        @include screen('mobile') {
-            flex-direction: column;
+        .footer_logo{
+            padding: 1.75em 0;
         }
-        li {
-            flex:0 1 auto;
-            margin: 0px 5px 5px 0px;
+        .footer_link {
+            @include li-reset();
+            @include clearfix();
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             @include screen('mobile') {
-             flex:1 1 100%; 
-         }
-         a {
-            display: block;
-            padding: .5em 1em;
-            background: $primaryColor;
-            color: #FFF;
-            border-radius:4px;
-            text-align: center;
-            transition: all .3s ease-out;
-            &:hover,
-            &:focus {
-                background: darken($primaryColor, 10);
+                flex-direction: column;
+            }
+            li {
+                flex: 0 1 auto;
+                margin: 0px 5px 5px 0px;
+                // @include screen('mobile') {
+                //     flex:1 1 100%; 
+                // }
+                a {
+                    display: block;
+                    padding: .5em 1em;
+                    background: transparent;
+                    color: #FFF;
+                    border-radius:4px;
+                    text-align: center;
+                    transition: all .3s ease-out;
+                    &:hover, &:focus {
+                        background: darken($primaryColor, 10);
+                    }
+                }
+            }
+        }
+        .footer_info{}
+        .footer_icon{
+            a {
+                display: inline-block;
+                vertical-align: top;
+                position:relative;
+                &:focus {
+                    &:after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        box-shadow: 0px 0px 0px 1px $aHover inset;
+                        z-index: 99;
+                    }
+                }
+            }
+            img {
+                max-width: 120px;
+            }
+            .update,
+            .counter{
+                display: block;
+                margin-right: 5px;
+                em {
+                    font-style: normal;
+                    // color: $primaryColor;
+                    padding: 0 .5em;
+                }
+            }
+        }
+
+        @include screen('tablet') {
+            .footer_logo,
+            .footer_link,
+            .footer_info,
+            .footer_icon{
+                flex: 1 1 100%; 
+                text-align: center;
+                justify-content: center;
             }
         }
     }
 }
-p {
-    line-height: 1.65em;
-}
-.update,
-.counter {
-    display: inline-block;
-    margin-right: 5px;
-    em {
-        font-style: normal;
-        color: $primaryColor;
-        padding: 0 .5em;
-    }
-}
-.footer_icon {
-    a {
-        display: inline-block;
-        vertical-align: top;
-        position:relative;
-        &:focus {
-            &:after {
-                content: "";
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                box-shadow: 0px 0px 0px 1px $aHover inset;
-                z-index: 99;
-            }
-        }
-    }
-    img {
-        max-width: 120px;
-    }
-}
-}
+
+// footer {
+//     box-sizing: border-box;
+//     @include clearfix;
+//     text-align: left;
+//     font-size: 0.813em;
+//     padding: 1em 0;
+//     .container {
+//         @include gutter;
+//         >div {
+//             padding-bottom: 1em;
+//         }
+//         display: flex;
+//         @include screen('tablet') {
+//             flex-wrap:wrap;
+//         }
+//     }
+//     a {
+//         text-decoration: none;
+//         color: $primaryColor;
+//         &:hover,
+//         &:focus {
+//             color: darken($primaryColor, 10);
+//         }
+//     }
+//     .footer_logo {
+//         flex:0 1 240px;
+//     }
+//     .footer_info {
+//         flex:1 1 auto;
+//     }
+//     .footer_icon {
+//         flex:0 1 200px;
+//         @include screen('tablet') {
+//             flex:1 1 100%; 
+//             text-align: right;
+//         }
+//     }
+//     // 版權連結
+//     .footer_link {
+//         @include li-reset();
+//         @include clearfix();
+//         display: flex;
+//         @include screen('mobile') {
+//             flex-direction: column;
+//         }
+//         li {
+//             flex:0 1 auto;
+//             margin: 0px 5px 5px 0px;
+//             @include screen('mobile') {
+//                 flex:1 1 100%; 
+//             }
+//             a {
+//                 display: block;
+//                 padding: .5em 1em;
+//                 background: $primaryColor;
+//                 color: #FFF;
+//                 border-radius:4px;
+//                 text-align: center;
+//                 transition: all .3s ease-out;
+//                 &:hover,
+//                 &:focus {
+//                     background: darken($primaryColor, 10);
+//                 }
+//             }
+//         }
+//     }
+//     p {
+//         line-height: 1.65em;
+//     }
+//     .update,
+//     .counter {
+//         display: inline-block;
+//         margin-right: 5px;
+//         em {
+//             font-style: normal;
+//             color: $primaryColor;
+//             padding: 0 .5em;
+//         }
+//     }
+//     .footer_icon {
+//         a {
+//             display: inline-block;
+//             vertical-align: top;
+//             position:relative;
+//             &:focus {
+//                 &:after {
+//                     content: "";
+//                     width: 100%;
+//                     height: 100%;
+//                     position: absolute;
+//                     top: 0;
+//                     left: 0;
+//                     box-shadow: 0px 0px 0px 1px $aHover inset;
+//                     z-index: 99;
+//                 }
+//             }
+//         }
+//         img {
+//             max-width: 120px;
+//         }
+//     }
+// }

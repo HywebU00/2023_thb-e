@@ -66,10 +66,247 @@ a.more {
     }
 }
 
-// 範例：
-.demosection {
-    [class^='col'] {
-        border: 2px solid #fff;
-        background: #dedede;
+$all: #48a9c5;
+$activity: #f48924;
+$expo: #0cb9c1;
+$lottery: #7552cc;
+$vote: #00c16e;
+$QA: #f85a40;
+$other: #037ef3;
+
+.tags{
+    padding-bottom: 2em;
+    ul{
+        @include li-reset;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        text-align: center;
+        li{
+            a{
+                display: block;
+                // background: #ddd;
+                position: relative;
+                line-height: 3;
+                font-size: 1.125em;
+                font-weight: bold;
+                color: #222;
+                &:before{
+                    content: "";
+                    display: block;
+                    width: 100px;
+                    height: 100px;
+                    background: $primaryColor;
+                    border-radius: 50%;
+                    transition: .3s; 
+                }
+                &:after{
+                    content: "";
+                    position: absolute;
+                    width: 56px;
+                    height: 56px;
+                    top: 22px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                &.all{
+                    &:after{
+                        background: url(../images/icon_all.svg) 50% 50% no-repeat;
+                        background-size: contain;
+                    }
+                    &:hover, &:focus-visible, &.act{
+                        &:before{
+                            background: $all;
+                        } 
+                    }
+                }
+                &.activity{
+                    &:after{
+                        background: url(../images/icon_active.svg) 50% 50% no-repeat;
+                        background-size: contain;
+                    }
+                    &:hover, &:focus-visible, &.act{
+                        &:before{
+                            background: $activity;
+                        }
+                    }
+                }
+                &.expo{
+                    &:after{
+                        background: url(../images/icon_expo.svg) 50% 50% no-repeat;
+                        background-size: contain;
+                    }
+                    &:hover, &:focus-visible, &.act{
+                        &:before{
+                            background: $expo;
+                        }
+                    }
+                }
+                &.lottery{
+                    &:after{
+                        background: url(../images/icon_lottery.svg) 50% 50% no-repeat;
+                        background-size: contain;
+                    }
+                    &:hover, &:focus-visible, &.act{
+                        &:before{
+                            background: $lottery;
+                        }
+                    }
+                }
+                &.vote{
+                    &:after{
+                        background: url(../images/icon_vote.svg) 50% 50% no-repeat;
+                        background-size: contain;
+                    }
+                    &:hover, &:focus-visible, &.act{
+                        &:before{
+                            background: $vote;
+                        }
+                    }
+                }
+                &.QA{
+                    &:after{
+                        background: url(../images/icon_QA.svg) 50% 50% no-repeat;
+                        background-size: contain;
+                    }
+                    &:hover, &:focus-visible, &.act{
+                        &:before{
+                            background: $QA;
+                        }
+                    }
+                }
+                &.other{
+                    &:after{
+                        background: url(../images/icon_other.svg) 50% 50% no-repeat;
+                        background-size: contain;
+                    }
+                    &:hover, &:focus-visible, &.act{
+                        &:before{
+                            background: $other;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include screen('tablet'){
+        background: #f4f1ec;
+        ul{
+            flex-wrap: wrap;
+            li{
+                a{
+                    &:before{
+                        transform: scale(.8) translateX(0);
+                    }
+                    &:after{
+                        transform: scale(.8) translateX(-60%);
+                    }
+                }
+            } 
+        }
     }
 }
+.thumbnail_horizontal{
+    a.col{
+        display: flex;
+        flex-wrap: nowrap;
+        margin: 2em 0;
+        color: #333;
+        background: #fff;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 6px;
+        overflow: hidden;
+
+        // a{
+        //     display: block;
+        //     color: #333;
+        // }
+        @include screen('tablet'){
+            flex-wrap: wrap;
+            .img-container,
+            .info{
+                flex: 1 1 100%;
+            } 
+        }
+    }
+    .img-container{
+        flex: 0 0 60%;
+        height: 320px;
+    }
+    .info{
+        flex: 1 1 40%;
+        padding: 2em;
+        time{
+            display: block;
+            font-weight: bold;
+            padding: 1em 0;
+        }
+        .title, p{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .title{
+            font-size: 1.5em;
+            font-weight: bold; 
+            line-height: 1.2;
+            -webkit-line-clamp: 2;
+        }
+        p{
+            -webkit-line-clamp: 3;
+        }
+        .activeTags{
+            span{
+                font-size: 90%;
+                font-weight: bold;
+                display: inline-block;
+                padding: .25em 1em;
+                margin: 2px 0;
+                background: pink;
+                border-radius: 30px;
+
+                &.activity{
+                    background: $activity;
+                }
+                &.expo{
+                    background: $expo;
+                }
+                &.lottery{
+                    background: $lottery;
+                    color: #fff;
+                }
+                &.vote{
+                    background: $vote;
+                }
+                &.QA{
+                    background: $QA;
+                }
+                &.other{
+                    background: $other;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    @include screen('mobile') {
+        position: relative;
+        z-index: 2;
+        &:before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            background: #f5f1ed;
+            left: 0;
+            top: -40px;
+        }
+    }
+}
+
+// 範例：
+// .demosection {
+//     [class^='col'] {
+//         border: 2px solid #fff;
+//         background: #dedede;
+//     }
+// }

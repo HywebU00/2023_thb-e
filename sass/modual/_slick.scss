@@ -132,10 +132,12 @@
     font-size: 0em;
     line-height: 0em;
     position: absolute;
-    top: 40%;
+    top: initial;
+    bottom: 64px;
     display: block;
-    width: 40px !important;
+    width: 60px !important;
     height: 60px !important;
+    border-radius: 50%;
     padding: 0 !important;
     min-width: auto;
     z-index: 2;
@@ -157,13 +159,12 @@
 
 .slick-prev {
     left: 25px;
-    background: url('../images/slick/icon_arrow_left_inverse.png') center center no-repeat RGBA(255, 255, 255, .5);
-    background-size: 30px 30px;
-    /* 箭頭 hover及focus 樣式 */
+    background: url('../images/icon-arrow-left.svg') center center no-repeat rgb(0 0 0 / 65%);
+    background-size: 24px 24px;
     &:hover,
     &:focus {
-        background: url('../images/slick/icon_arrow_left_inverse.png') center center no-repeat RGBA(255, 255, 255, .8);
-        background-size: 30px 30px;
+        background: url('../images/icon-arrow-left.svg') center center no-repeat $primaryColor;
+        background-size: 24px 24px;
     }
 }
 
@@ -172,13 +173,12 @@
 
 .slick-next {
     right: 25px;
-    background: url('../images/slick/icon_arrow_right_inverse.png') center center no-repeat RGBA(255, 255, 255, .5);
-    background-size: 30px 30px;
-    /* 箭頭 hover及focus 樣式 */
+    background: url('../images/icon-arrow-right.svg') center center no-repeat rgb(0 0 0 / 65%);
+    background-size: 24px 24px;
     &:hover,
     &:focus {
-        background: url('../images/slick/icon_arrow_right_inverse.png') center center no-repeat RGBA(255, 255, 255, .8);
-        background-size: 30px 30px;
+        background: url('../images/icon-arrow-right.svg') center center no-repeat $primaryColor;
+        background-size: 24px 24px;
     }
 }
 
@@ -271,14 +271,11 @@
 // 首頁大圖輪播 
 .mpSlider {
     width: 100%;
-    padding-bottom: 3em;
     @include gutter(0);
     .img-container {
-        @include aspect-ratio(5,
-        2); //PC版比例
+        @include aspect-ratio(5, 2); //PC版比例
         @include screen('mobile') {
-            @include aspect-ratio(5,
-            3); //Mobile版比例
+            @include aspect-ratio(5,3); //Mobile版比例
         }
     }
     .slick-prev {
