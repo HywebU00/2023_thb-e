@@ -264,7 +264,8 @@ $other: #037ef3;
                 display: inline-block;
                 padding: .25em 1em;
                 margin: 2px 0;
-                background: pink;
+                color: #fff;
+                // background: pink;
                 border-radius: 30px;
 
                 &.activity{
@@ -275,7 +276,6 @@ $other: #037ef3;
                 }
                 &.lottery{
                     background: $lottery;
-                    color: #fff;
                 }
                 &.vote{
                     background: $vote;
@@ -285,7 +285,6 @@ $other: #037ef3;
                 }
                 &.other{
                     background: $other;
-                    color: #fff;
                 }
             }
         }

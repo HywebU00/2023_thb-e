@@ -8889,7 +8889,7 @@ a.more:hover:after, a.more:focus:after, a.more.active:after {
   display: inline-block;
   padding: 0.25em 1em;
   margin: 2px 0;
-  background: pink;
+  color: #fff;
   border-radius: 30px;
 }
 .thumbnail_horizontal .info .activeTags span.activity {
@@ -8900,7 +8900,6 @@ a.more:hover:after, a.more:focus:after, a.more.active:after {
 }
 .thumbnail_horizontal .info .activeTags span.lottery {
   background: #7552cc;
-  color: #fff;
 }
 .thumbnail_horizontal .info .activeTags span.vote {
   background: #00c16e;
@@ -8910,7 +8909,6 @@ a.more:hover:after, a.more:focus:after, a.more.active:after {
 }
 .thumbnail_horizontal .info .activeTags span.other {
   background: #037ef3;
-  color: #fff;
 }
 @media screen and (max-width: 991px) {
   .thumbnail_horizontal .img-container {
