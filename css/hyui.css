@@ -4209,6 +4209,9 @@ footer:before, footer:after {
 footer:after {
   clear: both;
 }
+footer .accesskey {
+  color: #fff;
+}
 footer::after {
   content: "";
   position: absolute;
@@ -8828,9 +8831,11 @@ a.more:hover:after, a.more:focus:after, a.more.active:after {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 6px;
   overflow: hidden;
+  transform: scale(0.95);
   transition: 0.3s;
 }
-.thumbnail_horizontal a.col:hover {
+.thumbnail_horizontal a.col:hover, .thumbnail_horizontal a.col:focus, .thumbnail_horizontal a.col:focus-visible {
+  transform: scale(1);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 @media screen and (max-width: 991px) {

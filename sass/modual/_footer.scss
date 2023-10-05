@@ -4,7 +4,9 @@ footer{
     padding: 2em 0;
     font-size: 0.813em;
     color: #fff;
-
+    .accesskey{
+        color: #fff; 
+    }
     // mix-blend-mode 前置作業
     // 下面的底圖
     background: url(../images/bg-mp.jpg) 50% 80% no-repeat;
