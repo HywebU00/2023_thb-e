@@ -96,6 +96,21 @@ body {
     text-align: center;
     font-size: 2em;
     padding: 1em 0;
+    margin-bottom: 1.75em;
+    color: #2B444B;
+
+    position: relative;
+    &:after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 120px;
+        height: 4px;
+        border-radius: 4px;
+        background: #2B444B;
+        transform: translateX(-50%);
+    }
 }
 .deco{
     position: relative;

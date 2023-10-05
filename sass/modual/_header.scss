@@ -206,17 +206,17 @@
             border-radius: 44px;
             &[type='submit'] {
                 position: absolute;
-                right: 2px;
-                top: 1px;
+                right: 1px;
                 min-width: auto;
-                width: 40px;
-                height: 40px;
+                width: 42px;
+                height: 42px;
                 padding: .65em;
                 background: url(../images/icon/icon_search.svg) 50% 50% no-repeat #fff;
                 background-size: 22px 22px;
                 border-color: transparent;
                 border-radius: 50%;
                 text-indent: -2000px;
+                transform: scale(.9);
 
                 &:hover, &:focus-visible{
                     filter: invert(1);
