@@ -3013,6 +3013,7 @@ div.tag ul li a:hover, div.tag ul li a:focus {
   box-shadow: none;
   width: auto;
   border-radius: 44px;
+  height: 42px;
 }
 .search .form_grp input[type=submit] {
   position: absolute;
